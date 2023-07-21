@@ -5,6 +5,170 @@ protocol (LWM2M).
 
 Developers mailing list: https://dev.eclipse.org/mailman/listinfo/wakaama-dev
 
+# Build wakaama and Testing out with Leshan for SouthEastWater
+
+```
+(base) henrynguyen@tits1003m13 client % ./lwm2mclient -n IOT-01 -h bs.local -p 5683 -4 -b
+Trying to bind LWM2M Client to port 56830
+LWM2M Client "IOT-01" started on port 56830
+> Opening connection to server at bs.local:5683
+ -> State: STATE_BOOTSTRAPPING
+ -> State: STATE_BOOTSTRAPPING
+8 bytes received from [192.168.0.172]:5683
+64 44 16 C2  C2 16 49 CD   dD....I.
+ -> State: STATE_BOOTSTRAPPING
+14 bytes received from [192.168.0.172]:5683
+48 04 0C 3F  48 74 91 77  A9 30 66 3A  B1 30  H..?Ht.w.0f:.0
+ -> State: STATE_BOOTSTRAPPING
+14 bytes received from [192.168.0.172]:5683
+48 04 0C 40  7C AC 83 9D  9F E9 72 93  B1 31  H..@|.....r..1
+ -> State: STATE_BOOTSTRAPPING
+284 bytes received from [192.168.0.172]:5683
+48 03 0C 41  C8 73 E9 2A  80 F6 23 A0  B1 30 01 30   H..A.s.*..#..0.0
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  30 2F 30 2F   .n.[{"bn":"/0/0/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  73 22 3A 22   ","n":"0","vs":"
+63 6F 61 70  3A 2F 2F 62  73 2E 6C 6F  63 61 6C 3A   coap://bs.local:
+35 36 38 33  22 7D 2C 7B  22 6E 22 3A  22 31 22 2C   5683"},{"n":"1",
+22 76 62 22  3A 74 72 75  65 7D 2C 7B  22 6E 22 3A   "vb":true},{"n":
+22 32 22 2C  22 76 22 3A  33 7D 2C 7B  22 6E 22 3A   "2","v":3},{"n":
+22 33 22 2C  22 76 64 22  3A 22 22 7D  2C 7B 22 6E   "3","vd":""},{"n
+22 3A 22 34  22 2C 22 76  64 22 3A 22  22 7D 2C 7B   ":"4","vd":""},{
+22 6E 22 3A  22 35 22 2C  22 76 64 22  3A 22 22 7D   "n":"5","vd":""}
+2C 7B 22 6E  22 3A 22 36  22 2C 22 76  22 3A 33 7D   ,{"n":"6","v":3}
+2C 7B 22 6E  22 3A 22 37  22 2C 22 76  64 22 3A 22   ,{"n":"7","vd":"
+22 7D 2C 7B  22 6E 22 3A  22 38 22 2C  22 76 64 22   "},{"n":"8","vd"
+3A 22 22 7D  2C 7B 22 6E  22 3A 22 39  22 2C 22 76   :""},{"n":"9","v
+73 22 3A 22  22 7D 2C 7B  22 6E 22 3A  22 31 30 22   s":""},{"n":"10"
+2C 22 76 22  3A 31 31 31  7D 2C 7B 22  6E 22 3A 22   ,"v":111},{"n":"
+31 31 22 2C  22 76 22 3A  31 7D 2C 7B  22 6E 22 3A   11","v":1},{"n":
+22 31 32 22  2C 22 76 22  3A 30 7D 5D                "12","v":0}]
+ -> State: STATE_BOOTSTRAPPING
+285 bytes received from [192.168.0.172]:5683
+48 03 0C 42  B8 D1 23 01  75 D7 1A 05  B1 30 01 31   H..B..#.u....0.1
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  30 2F 31 2F   .n.[{"bn":"/0/1/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  73 22 3A 22   ","n":"0","vs":"
+63 6F 61 70  3A 2F 2F 64  6D 2E 6C 6F  63 61 6C 3A   coap://dm.local:
+35 36 38 33  22 7D 2C 7B  22 6E 22 3A  22 31 22 2C   5683"},{"n":"1",
+22 76 62 22  3A 66 61 6C  73 65 7D 2C  7B 22 6E 22   "vb":false},{"n"
+3A 22 32 22  2C 22 76 22  3A 33 7D 2C  7B 22 6E 22   :"2","v":3},{"n"
+3A 22 33 22  2C 22 76 64  22 3A 22 22  7D 2C 7B 22   :"3","vd":""},{"
+6E 22 3A 22  34 22 2C 22  76 64 22 3A  22 22 7D 2C   n":"4","vd":""},
+7B 22 6E 22  3A 22 35 22  2C 22 76 64  22 3A 22 22   {"n":"5","vd":""
+7D 2C 7B 22  6E 22 3A 22  36 22 2C 22  76 22 3A 33   },{"n":"6","v":3
+7D 2C 7B 22  6E 22 3A 22  37 22 2C 22  76 64 22 3A   },{"n":"7","vd":
+22 22 7D 2C  7B 22 6E 22  3A 22 38 22  2C 22 76 64   ""},{"n":"8","vd
+22 3A 22 22  7D 2C 7B 22  6E 22 3A 22  39 22 2C 22   ":""},{"n":"9","
+76 73 22 3A  22 22 7D 2C  7B 22 6E 22  3A 22 31 30   vs":""},{"n":"10
+22 2C 22 76  22 3A 31 32  33 7D 2C 7B  22 6E 22 3A   ","v":123},{"n":
+22 31 31 22  2C 22 76 22  3A 31 7D 2C  7B 22 6E 22   "11","v":1},{"n"
+3A 22 31 32  22 2C 22 76  22 3A 30 7D  5D            :"12","v":0}]
+ -> State: STATE_BOOTSTRAPPING
+124 bytes received from [192.168.0.172]:5683
+48 03 0C 43  B8 86 91 FD  CC 6C 5A 5F  B1 31 01 30   H..C.....lZ_.1.0
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  31 2F 30 2F   .n.[{"bn":"/1/0/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  22 3A 31 32   ","n":"0","v":12
+33 7D 2C 7B  22 6E 22 3A  22 31 22 2C  22 76 22 3A   3},{"n":"1","v":
+33 30 30 7D  2C 7B 22 6E  22 3A 22 32  22 2C 22 76   300},{"n":"2","v
+22 3A 31 7D  2C 7B 22 6E  22 3A 22 36  22 2C 22 76   ":1},{"n":"6","v
+62 22 3A 74  72 75 65 7D  2C 7B 22 6E  22 3A 22 37   b":true},{"n":"7
+22 2C 22 76  73 22 3A 22  55 22 7D 5D                ","vs":"U"}]
+ -> State: STATE_BOOTSTRAPPING
+15 bytes received from [192.168.0.172]:5683
+48 02 0C 44  F4 49 4F 1F  3C 04 A8 0F  B2 62 73  H..D.IO.<....bs
+ -> State: STATE_BOOTSTRAPPING
+Opening connection to server at dm.local:5683
+ -> State: STATE_REGISTERING
+22 bytes received from [192.168.0.170]:5683
+64 41 16 C3  C3 16 4A CD  82 72 64 0A  50 42 4E 4C   dA....J..rd.PBNL
+62 36 4F 47  67 70                                   b6OGgp
+ -> State: STATE_READY
+ -> State: STATE_READY
+ -> State: STATE_READY
+^C%                                                                                                                                                                    (base) henrynguyen@tits1003m13 client % ./lwm2mclient -n IOT-01 -h bs.local -p 5683 -4 -b
+Trying to bind LWM2M Client to port 56830
+LWM2M Client "IOT-01" started on port 56830
+> Opening connection to server at bs.local:5683
+ -> State: STATE_BOOTSTRAPPING
+ -> State: STATE_BOOTSTRAPPING
+8 bytes received from [192.168.0.172]:5683
+64 44 32 F6  F6 32 F5 CD   dD2..2..
+ -> State: STATE_BOOTSTRAPPING
+14 bytes received from [192.168.0.172]:5683
+48 04 0C 45  6C 87 80 2F  37 C6 70 96  B1 30  H..El../7.p..0
+ -> State: STATE_BOOTSTRAPPING
+14 bytes received from [192.168.0.172]:5683
+48 04 0C 46  AC C5 CE B9  EF 8A 85 DD  B1 31  H..F.........1
+ -> State: STATE_BOOTSTRAPPING
+284 bytes received from [192.168.0.172]:5683
+48 03 0C 47  24 FF 5C 35  83 A4 A7 36  B1 30 01 30   H..G$.\5...6.0.0
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  30 2F 30 2F   .n.[{"bn":"/0/0/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  73 22 3A 22   ","n":"0","vs":"
+63 6F 61 70  3A 2F 2F 62  73 2E 6C 6F  63 61 6C 3A   coap://bs.local:
+35 36 38 33  22 7D 2C 7B  22 6E 22 3A  22 31 22 2C   5683"},{"n":"1",
+22 76 62 22  3A 74 72 75  65 7D 2C 7B  22 6E 22 3A   "vb":true},{"n":
+22 32 22 2C  22 76 22 3A  33 7D 2C 7B  22 6E 22 3A   "2","v":3},{"n":
+22 33 22 2C  22 76 64 22  3A 22 22 7D  2C 7B 22 6E   "3","vd":""},{"n
+22 3A 22 34  22 2C 22 76  64 22 3A 22  22 7D 2C 7B   ":"4","vd":""},{
+22 6E 22 3A  22 35 22 2C  22 76 64 22  3A 22 22 7D   "n":"5","vd":""}
+2C 7B 22 6E  22 3A 22 36  22 2C 22 76  22 3A 33 7D   ,{"n":"6","v":3}
+2C 7B 22 6E  22 3A 22 37  22 2C 22 76  64 22 3A 22   ,{"n":"7","vd":"
+22 7D 2C 7B  22 6E 22 3A  22 38 22 2C  22 76 64 22   "},{"n":"8","vd"
+3A 22 22 7D  2C 7B 22 6E  22 3A 22 39  22 2C 22 76   :""},{"n":"9","v
+73 22 3A 22  22 7D 2C 7B  22 6E 22 3A  22 31 30 22   s":""},{"n":"10"
+2C 22 76 22  3A 31 31 31  7D 2C 7B 22  6E 22 3A 22   ,"v":111},{"n":"
+31 31 22 2C  22 76 22 3A  31 7D 2C 7B  22 6E 22 3A   11","v":1},{"n":
+22 31 32 22  2C 22 76 22  3A 30 7D 5D                "12","v":0}]
+ -> State: STATE_BOOTSTRAPPING
+285 bytes received from [192.168.0.172]:5683
+48 03 0C 48  F8 C4 02 92  72 FC E2 34  B1 30 01 31   H..H....r..4.0.1
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  30 2F 31 2F   .n.[{"bn":"/0/1/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  73 22 3A 22   ","n":"0","vs":"
+63 6F 61 70  3A 2F 2F 64  6D 2E 6C 6F  63 61 6C 3A   coap://dm.local:
+35 36 38 33  22 7D 2C 7B  22 6E 22 3A  22 31 22 2C   5683"},{"n":"1",
+22 76 62 22  3A 66 61 6C  73 65 7D 2C  7B 22 6E 22   "vb":false},{"n"
+3A 22 32 22  2C 22 76 22  3A 33 7D 2C  7B 22 6E 22   :"2","v":3},{"n"
+3A 22 33 22  2C 22 76 64  22 3A 22 22  7D 2C 7B 22   :"3","vd":""},{"
+6E 22 3A 22  34 22 2C 22  76 64 22 3A  22 22 7D 2C   n":"4","vd":""},
+7B 22 6E 22  3A 22 35 22  2C 22 76 64  22 3A 22 22   {"n":"5","vd":""
+7D 2C 7B 22  6E 22 3A 22  36 22 2C 22  76 22 3A 33   },{"n":"6","v":3
+7D 2C 7B 22  6E 22 3A 22  37 22 2C 22  76 64 22 3A   },{"n":"7","vd":
+22 22 7D 2C  7B 22 6E 22  3A 22 38 22  2C 22 76 64   ""},{"n":"8","vd
+22 3A 22 22  7D 2C 7B 22  6E 22 3A 22  39 22 2C 22   ":""},{"n":"9","
+76 73 22 3A  22 22 7D 2C  7B 22 6E 22  3A 22 31 30   vs":""},{"n":"10
+22 2C 22 76  22 3A 31 32  33 7D 2C 7B  22 6E 22 3A   ","v":123},{"n":
+22 31 31 22  2C 22 76 22  3A 31 7D 2C  7B 22 6E 22   "11","v":1},{"n"
+3A 22 31 32  22 2C 22 76  22 3A 30 7D  5D            :"12","v":0}]
+ -> State: STATE_BOOTSTRAPPING
+124 bytes received from [192.168.0.172]:5683
+48 03 0C 49  7C 18 42 89  F5 98 0E AF  B1 31 01 30   H..I|.B......1.0
+11 6E FF 5B  7B 22 62 6E  22 3A 22 2F  31 2F 30 2F   .n.[{"bn":"/1/0/
+22 2C 22 6E  22 3A 22 30  22 2C 22 76  22 3A 31 32   ","n":"0","v":12
+33 7D 2C 7B  22 6E 22 3A  22 31 22 2C  22 76 22 3A   3},{"n":"1","v":
+33 30 30 7D  2C 7B 22 6E  22 3A 22 32  22 2C 22 76   300},{"n":"2","v
+22 3A 31 7D  2C 7B 22 6E  22 3A 22 36  22 2C 22 76   ":1},{"n":"6","v
+62 22 3A 74  72 75 65 7D  2C 7B 22 6E  22 3A 22 37   b":true},{"n":"7
+22 2C 22 76  73 22 3A 22  55 22 7D 5D                ","vs":"U"}]
+ -> State: STATE_BOOTSTRAPPING
+15 bytes received from [192.168.0.172]:5683
+48 02 0C 4A  00 B3 AF 6A  5F A9 62 92  B2 62 73  H..J...j_.b..bs
+ -> State: STATE_BOOTSTRAPPING
+Opening connection to server at dm.local:5683
+ -> State: STATE_REGISTERING
+22 bytes received from [192.168.0.170]:5683
+64 41 32 F7  F7 32 F5 CD  82 72 64 0A  54 56 48 52   dA2..2...rd.TVHR
+67 33 58 66  42 51                                   g3XfBQ
+ -> State: STATE_READY
+ -> State: STATE_READY
+ -> State: STATE_READY
+ -> State: STATE_READY
+ -> State: STATE_READY
+8 bytes received from [192.168.0.170]:5683
+
+```
+![Wakaama-IOT-01-Bootstrap.png](Wakaama-IOT-01-Bootstrap.png)
+![Wakaama-IOT-01-DeviceManagement.png](Wakaama-IOT-01-DeviceManagement.png)
+
+
 ## Security warning
 
 The only official release of Wakaama, version 1.0, is affected by various
